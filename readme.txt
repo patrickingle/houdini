@@ -1,6 +1,4 @@
-# Houdini 
-The official development branch for the wordpress plugin located at https://wordpress.org/plugins/houdini/
-
+=== Houdini ===
 Contributors: phkcorp2005
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=9674139
 Tags: houdini, phk, security, copy protected, plugin, javascript, protect, plagiarism, copyright, posts, Post 
@@ -10,7 +8,7 @@ Stable tag: 1.4
 
 Provides a method to copy protect your webpages from plagiarism and content theft.
 
-# Description 
+== Description ==
 
 The fact is the internet is open can lead to theft especially to content stealing and plagiarism.
 
@@ -40,7 +38,7 @@ oages.
 
 Your are safer!
 
-# Installation 
+== Installation ==
 
 To install this plugin, follow these steps:
 
@@ -52,7 +50,7 @@ To install this plugin, follow these steps:
 6. If you want to protect your existing/all pages/posts without adding the shortcode to each page, there is an option on the Admin Settings|Houdini page
 7. Additional tips can be found on the Admin Settings|Houdini page.
 
-# Frequently Asked Questions 
+== Frequently Asked Questions ==
 
 Please do not be afraid of asking questions?<br>
 
@@ -70,7 +68,7 @@ The disappearance of selected text feature works only with Internet Explorer. Us
 you select more than minimum characters defined in Admin|Settings|Houding page, that selection becomes unselected. Still annoyance to a content
 stealer when they do not expect this feature!
 
-# Changelog 
+== Changelog ==
 = 1.4 =
 * Fixes the MySQL error: WordPress database error: [Duplicate column name 'textsize'] ALTER TABLE `wp_houdini_settings` ADD `textsize` INT NOT NULL DEFAULT '250' for certain MySQL installations
 
@@ -86,7 +84,7 @@ stealer when they do not expect this feature!
 = 1.0 =
 * Created
 
-# Upgrade Notice 
+== Upgrade Notice ==
 = 1.4 =
 Fixes the MySQL error: WordPress database error: [Duplicate column name 'textsize'] ALTER TABLE `wp_houdini_settings` ADD `textsize` INT NOT NULL DEFAULT '250' for certain MySQL installations
 
@@ -100,7 +98,7 @@ Added entry field for admin configurable minimum selectable text size before de-
 Added entry field for admin configurable page text that raplaces the static text 'This page is copy protected'
 
 
-# Credits 
+== Credits ==
 
 We make honorable mention to anyone who helps make this plugin better!
 
@@ -110,7 +108,7 @@ Special thanks to http://fourisland.com/blog/and-like-magic-nothing-happens/for 
 
 Special thanks to http://www.idreia.com for their recommendation of a user configurable check entry for protecting all pages
 
-# Contact 
+== Contact ==
 
 Support is provided at https://github.com/patrickingle/houdini/issues. You will require a free account on github.com
 
