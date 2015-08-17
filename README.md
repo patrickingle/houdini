@@ -5,8 +5,8 @@ Contributors: phkcorp2005
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=9674139
 Tags: houdini, phk, security, copy protected, plugin, javascript, protect, plagiarism, copyright, posts, Post 
 Requires at least: 2.9
-Tested up to: 2.9.1
-Stable tag: 1.4
+Tested up to: 4.3
+Stable tag: 1.4.1
 
 Provides a method to copy protect your webpages from plagiarism and content theft.
 
@@ -71,6 +71,9 @@ you select more than minimum characters defined in Admin|Settings|Houding page, 
 stealer when they do not expect this feature!
 
 # Changelog 
+= 1.4.1 =
+* WP version 4.3
+
 = 1.4 =
 * Fixes the MySQL error: WordPress database error: [Duplicate column name 'textsize'] ALTER TABLE `wp_houdini_settings` ADD `textsize` INT NOT NULL DEFAULT '250' for certain MySQL installations
 
@@ -87,18 +90,6 @@ stealer when they do not expect this feature!
 * Created
 
 # Upgrade Notice 
-= 1.4 =
-Fixes the MySQL error: WordPress database error: [Duplicate column name 'textsize'] ALTER TABLE `wp_houdini_settings` ADD `textsize` INT NOT NULL DEFAULT '250' for certain MySQL installations
-
-= 1.3 =
-Added check entry field to enable protection of all existing pages/post without adding the shortcode to these existing pages/posts
- 
-= 1.2 =
-Added entry field for admin configurable minimum selectable text size before de-selection occurs.
-
-= 1.1 =
-Added entry field for admin configurable page text that raplaces the static text 'This page is copy protected'
-
 
 # Credits 
 
