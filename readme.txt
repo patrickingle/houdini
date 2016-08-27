@@ -3,8 +3,8 @@ Contributors: phkcorp2005
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=9674139
 Tags: houdini, phk, security, copy protected, plugin, javascript, protect, plagiarism, copyright, posts, Post 
 Requires at least: 2.9
-Tested up to: 4.3
-Stable tag: 1.4.1
+Tested up to: 4.6
+Stable tag: 1.4.2
 
 Provides a method to copy protect your webpages from plagiarism and content theft.
 
@@ -69,6 +69,10 @@ you select more than minimum characters defined in Admin|Settings|Houding page, 
 stealer when they do not expect this feature!
 
 == Changelog ==
+= 1.4.2 =
+* Change static wp_ to wpdb->prefix
+* WP version 4.6 tested
+
 = 1.4.1 =
 * WP version 4.3
 

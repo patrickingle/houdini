@@ -3,7 +3,7 @@
 Plugin Name: Houdini
 Plugin URI: http://www.phkcorp.com?do=wordpress
 Description: Prevents copying of a website through copy-n-paste of the rendered web pages
-Version: 1.4.1
+Version: 1.4.2
 Author: PHK Corporation
 Author URI: http://www.phkcorp.com
 */
@@ -35,15 +35,15 @@ function houdini_activation()
 
 	if (is_admin()) {
 
-		$query = "CREATE TABLE IF NOT EXISTS `wp_houdini_setting` (
+		$query = "CREATE TABLE IF NOT EXISTS ".$wpdb->prefix."`houdini_setting` (
 					`name` VARCHAR( 80 ) NOT NULL ,
 					`value` VARCHAR( 255 ) NOT NULL
 					) ENGINE = MYISAM ";
 		$wpdb->query($query);
 
-		$wpdb->query("INSERT INTO wp_houdini_setting (name,value) VALUES ('pagetext','This page is copy protected')");
-		$wpdb->query("INSERT INTO wp_houdini_setting (name,value) VALUES ('textsize','10')");
-		$wpdb->query("INSERT INTO wp_houdini_setting (name,value) VALUES ('global','N')");
+		$wpdb->query("INSERT INTO ".$wpdb->prefix."houdini_setting (name,value) VALUES ('pagetext','This page is copy protected')");
+		$wpdb->query("INSERT INTO ".$wpdb->prefix."houdini_setting (name,value) VALUES ('textsize','10')");
+		$wpdb->query("INSERT INTO ".$wpdb->prefix."houdini_setting (name,value) VALUES ('global','N')");
 
 	} // endif of is_admin()
 }
@@ -52,16 +52,16 @@ function houdini_deactivation()
 {
 	global $wpdb;
 
-	$wpdb->query("DROP TABLE IF EXISTS wp_houdini_settings");
+	$wpdb->query("DROP TABLE IF EXISTS ".$wpdb->prefix."houdini_settings");
 }
 
 function houdini_wp_head()
 {
 	global $wpdb;
 
-	$t = $wpdb->get_col("select value from wp_houdini_setting where name='pagetext'");
+        $t = $wpdb->get_col("select value from ".$wpdb->prefix."houdini_setting where name='pagetext'");
 	$pageText = $t[0];
-	$t = $wpdb->get_col("select value from wp_houdini_setting where name='textsize'");
+	$t = $wpdb->get_col("select value from ".$wpdb->prefix."houdini_setting where name='textsize'");
 	$textSize = $t[0];
 
 	$output = '
@@ -98,7 +98,7 @@ window.setTimeout ("displayPage()", 100 );
 	';
 
 
-	$t = $wpdb->get_col("select value from wp_houdini_setting where name='global'");
+	$t = $wpdb->get_col("select value from ".$wpdb->prefix."houdini_setting where name='global'");
 	if ($t[0] == 'Y' && !is_admin()) {
 		echo $output;
 	}
@@ -109,9 +109,9 @@ function houdini_wp_footer()
 {
 	global $wpdb;
 
-	$t = $wpdb->get_col("select value from wp_houdini_setting where name='pagetext'");
+	$t = $wpdb->get_col("select value from ".$wpdb->prefix."houdini_setting where name='pagetext'");
 	$pageText = $t[0];
-	$t = $wpdb->get_col("select value from wp_houdini_setting where name='global'");
+	$t = $wpdb->get_col("select value from ".$wpdb->prefix."houdini_setting where name='global'");
 	$allPages = $t[0];
 
 	if ($allPages == 'Y' && !is_admin()) {
@@ -178,27 +178,25 @@ function displayHoudiniManagementPage()
 
 			//$sql = "insert into wp_houdini_settings (pagetext,textsize,global) values ('".$pageText."','".$textSize."','".$allPages."')";
 			//$wpdb->query($sql);
-			$wpdb->query("update wp_houdini_setting set value='".$pageText."' where name='pagetext'");
-			$wpdb->query("update wp_houdini_setting set value='".$textSize."' where name='textsize'");
-			$wpdb->query("update wp_houdini_setting set value='".$allPages."' where name='global'");
+			$wpdb->query("update ".$wpdb->prefix."houdini_setting set value='".$pageText."' where name='pagetext'");
+			$wpdb->query("update ".$wpdb->prefix."houdini_setting set value='".$textSize."' where name='textsize'");
+			$wpdb->query("update ".$wpdb->prefix."houdini_setting set value='".$allPages."' where name='global'");
 
 
 			// echo message updated
 			echo "<div class='updated fade'><p>Houdini settings have been updated</p></div>";
 		}
 
-		$t = $wpdb->get_col("select value from wp_houdini_setting where name='pagetext'");
+		$t = $wpdb->get_col("select value from ".$wpdb->prefix."houdini_setting where name='pagetext'");
 		$pageText = $t[0];
-		$t = $wpdb->get_col("select value from wp_houdini_setting where name='textsize'");
+		$t = $wpdb->get_col("select value from ".$wpdb->prefix."houdini_setting where name='textsize'");
 		$textSize = $t[0];
-		$t = $wpdb->get_col("select value from wp_houdini_setting where name='global'");
+		$t = $wpdb->get_col("select value from ".$wpdb->prefix."houdini_setting where name='global'");
 		if ($t[0] == 'Y') $allPages = 'checked';
 
 ?>
 		<div class="wrap">
 			<h2>Houdini</h2>
-
-
 
 			<form method="post">
 				<fieldset class='options'>
@@ -306,6 +304,12 @@ function displayHoudiniManagementPage()
 					<legend><h2><u>About the Architecture</u></h2></legend>
 						<p>This plugin uses a little know special javascript algorithm to make selected text disappear.</p>
 				</fieldset>
+                        
+                        <fieldset class="options">
+                            <legend><h2><u>Support</u></h2></legend>
+                            <p>Support is provided from <a href="https://github.com/patrickingle/houdini/issues" target="_blank">github.com</a> (opens in new window)</p>
+                            <p>You must have a free github.com account to post issue requests.</p>
+                        </fieldset>
 
 				<fieldset class='options'>
 					<legend><h2><u>Wordpress Development</u></h2></legend>
@@ -363,10 +367,10 @@ window.setTimeout ("displayPage()", 100 );<br/>
 function show_houdini_javascript($atts, $content=null, $code="")
 {
 	global $wpdb;
-	$t = $wpdb->get_col("select value from wp_houdini_setting where name='pagetext'");
+	$t = $wpdb->get_col("select value from ".$wpdb->prefix."houdini_setting where name='pagetext'");
 
 	$pageText = $t[0];
-	$t = $wpdb->get_col("select value from wp_houdini_setting where name='textsize'");
+	$t = $wpdb->get_col("select value from ".$wpdb->prefix."houdini_setting where name='textsize'");
 	$textSize = $t[0];
 
 	$output = '
@@ -404,7 +408,7 @@ window.setTimeout ("displayPage()", 100 );
 	';
 
 
-	$t = $wpdb->get_col("select value from wp_houdini_setting where name='global'");
+	$t = $wpdb->get_col("select value from ".$wpdb->prefix."houdini_setting where name='global'");
 	if ($t[0] == 'N') {
 		return $output;
 	}
