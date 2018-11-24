@@ -117,6 +117,6 @@ Special thanks to http://www.idreia.com for their recommendation of a user confi
 
 == Contact ==
 
-Support is provided at https://github.com/patrickingle/houdini/issues. You will require a free account on github.com
+Support is provided at https://github.com/presspage2018/houdini/issues. You will require a free account on github.com
 
-Please contact phkcorp2005@gmail.com or visit the above forum with questions, comments, or requests.
+Please contact presspage.entertainment@gmail.com or visit the above forum with questions, comments, or requests.

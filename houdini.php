@@ -1,16 +1,16 @@
 <?php
 /*
 Plugin Name: Houdini
-Plugin URI: http://www.phkcorp.com?do=wordpress
+Plugin URI: https://wordpress.org/plugins/houdini
 Description: Prevents copying of a website through copy-n-paste of the rendered web pages
 Version: 1.4.2
-Author: PHK Corporation
-Author URI: http://www.phkcorp.com
+Author: PressPage Entertainment Inc.
+Author URI: https://presspage.info
 */
 
 /*
 
-	Copyright 2010  PHK Corporation  (email : phkcorp2005@gmail.com)
+	Copyright 2010  PressPage Entertainment Inc.  (email: presspage.entertainment@gmail.com)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -121,7 +121,7 @@ function houdini_wp_footer()
 
 function houdini_redirect_to()
 {
-	header("http://www.phkcorp.com");
+	header("https://presspage.info");
 }
 
 function addHoudiniSettingsTable ()
@@ -253,7 +253,7 @@ function displayHoudiniManagementPage()
 						to the start of your theme header.php<br /><br />
 						<code>
 						&lt;noscript&gt;<br />
-							&lt;?php header("Location: http://www.phkcorp.com"); exit(); ?&gt;<br />
+							&lt;?php header("Location: https://presspage.info"); exit(); ?&gt;<br />
 						&lt;/noscript&gt;<br />
 						</code>
 						<br>Replace the URL with the page that want to redirect when Javascript is disabled.<br />
@@ -307,15 +307,15 @@ function displayHoudiniManagementPage()
                         
                         <fieldset class="options">
                             <legend><h2><u>Support</u></h2></legend>
-                            <p>Support is provided from <a href="https://github.com/patrickingle/houdini/issues" target="_blank">github.com</a> (opens in new window)</p>
+                            <p>Support is provided from <a href="https://github.com/presspage2018/houdini/issues" target="_blank">github.com</a> (opens in new window)</p>
                             <p>You must have a free github.com account to post issue requests.</p>
                         </fieldset>
 
 				<fieldset class='options'>
 					<legend><h2><u>Wordpress Development</u></h2></legend>
-<p><a href="http://www.phkcorp.com" target="_blank">PHK Corporation</a> is available for custom Wordpress development which includes development of new plugins, modification
+<p><a href="https://presspage.info" target="_blank">PressPage Entertainment Inc.</a> is available for custom Wordpress development which includes development of new plugins, modification
 of existing plugins, migration of HTML/PSD/Smarty themes to wordpress-compliant <b>seamless</b> themes.</p>
-<p>Please email at <a href="mailto:phkcorp2005@gmail.com">phkcorp2005@gmail.com</a></p>
+<p>Please email at <a href="mailto:presspage.entertainment@gmail.com">presspage.entertainment@gmail.com</a></p>
 				</fieldset>
 
 				<fieldset class='options'>
