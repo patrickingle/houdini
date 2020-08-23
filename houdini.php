@@ -3,7 +3,7 @@
 Plugin Name: Houdini
 Plugin URI: https://wordpress.org/plugins/houdini
 Description: Prevents copying of a website through copy-n-paste of the rendered web pages
-Version: 1.4.2
+Version: 1.4.3
 Author: PressPage Entertainment Inc.
 Author URI: https://presspage.info
 */
@@ -149,7 +149,7 @@ function addHoudiniSettingsTable ()
 function addHoudiniToManagementPage()
 {
     // Add a new submenu under Options:
-    add_options_page('Houdini', 'Houdini', 8, 'houdini', 'displayHoudiniManagementPage');
+    add_options_page('Houdini', 'Houdini', 'administrator', 'houdini', 'displayHoudiniManagementPage');
 }
 
 // Display the admin page.
